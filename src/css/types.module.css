@@ -1,0 +1,179 @@
+.normalType {
+	background-color: #a0a29f;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.fightingType {
+	background-color: #d3425f;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.flyingType {
+	background-color: #a1bbec;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.poisonType {
+	background-color: #b763cf;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.groundType {
+	background-color: #dd875d;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.rockType {
+	background-color: #c9bc8a;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.bugType {
+	background-color: #92bd2d;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.ghostType {
+	background-color: #5f6dbc;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.steelType {
+	background-color: #5795a3;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.fireType {
+	background-color: #fba64c;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.waterType {
+	background-color: #539ddf;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.grassType {
+	background-color: #60bd58;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.electricType {
+	background-color: #f2d94e;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.psychicType {
+	background-color: #fa8582;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.iceType {
+	background-color: #76d1c1;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.dragonType {
+	background-color: #0c6ac8;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.darkType {
+	background-color: #595761;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.fairyType {
+	background-color: #ef90e6;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.unknownType {
+	background-color: #68a090;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
+
+.shadowType {
+	background-color: #705898;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	margin: 10px;
+	color: #fff;
+}
