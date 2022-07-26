@@ -16,7 +16,40 @@ function convertWeight(weight) {
 
 function returnNumberGeneration(generation) {
 	let array = generation.split("-");
-	return array[1].toUpperCase();
+	let region = "???";
+	switch (array[1]) {
+		case "i":
+			region = "Kanto";
+			break;
+		case "ii":
+			region = "Jotho";
+			break;
+		case "iii":
+			region = "Hoenn";
+			break;
+		case "iv":
+			region = "Sinnoh";
+			break;
+		case "v":
+			region = "Teselia";
+			break;
+		case "vi":
+			region = "Kalos";
+			break;
+		case "vii":
+			region = "Alola";
+			break;
+		case "viii":
+			region = "Galar";
+			break;
+		case "ix":
+			region = "Hisui";
+			break;
+		default:
+			break;
+	}
+
+	return `${array[1].toUpperCase()} (${region})`;
 }
 
 export { capitalizeFirstLetter, convertHeight, convertWeight, returnNumberGeneration };

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+
 import {
 	capitalizeFirstLetter,
 	convertHeight,
@@ -7,38 +8,36 @@ import {
 } from "../helpers/transformObjects";
 import { useFetch } from "../hooks/useFetch";
 import ColorType from "./ColorType";
+import FavoriteCheckBox from "./FavoriteCheckBox";
 
 const SingleCard = ({ data }) => {
+	const [stateCheckBox, setStateCheckBox] = useState(false);
+
 	const { abilities, id, name, sprites, types, weight, height } = data;
-	useEffect(() => {
-		console.log("SingleCard render");
-	}, []);
-	// Obtengo la información del primer Fetch (Trae info general del pokemon)
 
 	// Obtengo la información del segundo Fetch (Info más detallada del pokemon). Se usa la forma data:dataSpecie para renombrar el destructuring del objeto
-	const {
-		data: dataSpecie,
-		error: errorSpecie,
-		loading: loadingSpecie,
-	} = useFetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+	const { data: dataSpecie } = useFetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 
 	const { generation, egg_groups } = dataSpecie;
+
+	useEffect(() => {}, []);
+
 	return (
 		<div className="mycard">
 			<div className="mycard-img">
-				<img src={sprites.other["official-artwork"].front_default} alt="" className="card-img" />
+				<img
+					src={sprites.other["official-artwork"].front_default}
+					alt={`Arte oficial de ${name}`}
+					className="card-img"
+				/>
 			</div>
 			<h1>{capitalizeFirstLetter(name)}</h1>
+			<FavoriteCheckBox stateCheckBox={stateCheckBox} setStateCheckBox={setStateCheckBox} data={data} />
 			<div className="mycard-body">
 				<div className="pokemon-types">
 					{types.map((item) => (
 						<ColorType key={item.slot} type={item.type.name}></ColorType>
 					))}
-
-					{/* <ColorType types={types} /> */}
-					{/* {types.map((item, index) => (
-				<h2 key={index}>{capitalizeFirstLetter(item.type.name)}</h2>
-			))} */}
 				</div>
 				<h3>
 					Peso: <span>{`${convertWeight(weight)} kg`}</span>

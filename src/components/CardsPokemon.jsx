@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import SingleCard from "./SingleCard";
 import { randomGenerator } from "../helpers/randomGenerator";
 import Loading from "../components/Loading";
-import { useFetch } from "../hooks/useFetch.js";
 import { useEffect, useState } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
 
-const CardsPokemon = () => {
+const CardsPokemon = ({ userSearch = "" }) => {
 	const [data, setData] = useState([]);
-	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
+
+	const { favorites, setFavorites } = useContext(FavoritesContext);
+
+	useEffect(() => {
+		console.log("SingleCard render");
+		if (localStorage.getItem("favorites")) {
+			// CARGAR DATOS DEL LOCAL STORAGE
+			setFavorites(JSON.parse(localStorage.getItem("favorites")));
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("favorites", JSON.stringify(favorites));
+	}, [favorites]);
 
 	useEffect(() => {
 		setLoading(true);
-		const arrayPokemon = randomGenerator(904, 3);
-		console.log(arrayPokemon);
+		const arrayPokemon = randomGenerator(904, 8);
 		arrayPokemon.forEach((element) => {
 			const url = `https://pokeapi.co/api/v2/pokemon/${element}/`;
 
@@ -24,42 +36,36 @@ const CardsPokemon = () => {
 			};
 			fetchData(url);
 		});
+		setLoading(false);
 	}, []);
 
-	useEffect(() => {
-		if (data.length === 3) {
-			setLoading(false);
-		}
-	}, [data]);
-
-	if (data.length < 3) {
+	if (loading) {
 		return <Loading />;
 	}
 
-	if (data.length === 3 && loading === false) {
-		console.log(data);
-		console.log(data[0].name);
+	if (userSearch !== "") {
 		return (
 			<>
-				<h2>Aquí se desplegarán las cards</h2>
 				<div className="mycard-container">
 					<div className="myrow-card">
-						{data[0].name === undefined
-							? null
-							: data.map((item) => <SingleCard key={item.id} data={item} />)}
-
-						{/* {data2.lenght === 0 ? null : <SingleCard data={data2} />}
-						{data3.lenght === 0 ? null : <SingleCard data={data3} />} */}
-						{/* {arrayPokemon.map((item) => (
-							console.log(item))
-							
-						)} */}
-						{/* {data === null ? null : data.map((item, index) => <SingleCard key={index} dataPokemon={item} />)} */}
+						<SingleCard key={userSearch.id} data={userSearch} />
 					</div>
 				</div>
 			</>
 		);
 	}
+
+	return (
+		<>
+			<div className="mycard-container">
+				<div className="myrow-card">
+					{data.map((item) => (
+						<SingleCard key={item.id} data={item} />
+					))}
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default CardsPokemon;
